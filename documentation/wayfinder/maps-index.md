@@ -8,9 +8,9 @@ All major feature areas of Ansible are charted as Wayfinder Maps on GitHub Issue
 
 | Ticket | Type | Frontier / Dependencies |
 | :--- | :--- | :--- |
-| [[Research] Nakama Go + Rust WASM (wazero/extism) runtime ABI and dev workflow](https://github.com/snackpackgames/ansible/issues/2) (`#2`) | `wayfinder:research` | **Frontier (unblocked)** |
-| [[Research] Godot 4 Compatibility renderer WebGL2 export & nakama-godot WebSocket auth on browser and mobile](https://github.com/snackpackgames/ansible/issues/3) (`#3`) | `wayfinder:research` | **Frontier (unblocked)** |
-| [[Grilling] Authoritative vs. optimistic client-server boundaries for offline-tolerant mobile play](https://github.com/snackpackgames/ansible/issues/4) (`#4`) | `wayfinder:grilling` | Blocked by [#2](https://github.com/snackpackgames/ansible/issues/2), [#3](https://github.com/snackpackgames/ansible/issues/3) |
+| [[Research] Nakama Go + Rust WASM (wazero/extism) runtime ABI and dev workflow](https://github.com/snackpackgames/ansible/issues/2) (`#2`) | `wayfinder:research` | **Frontier (unblocked)** *(report merged on `brebory/ansible#1`; pending upstream close)* |
+| [[Research] Godot 4 Compatibility renderer WebGL2 export & nakama-godot WebSocket auth on browser and mobile](https://github.com/snackpackgames/ansible/issues/3) (`#3`) | `wayfinder:research` | **Resolved** ([0003 resolution](resolutions/0003-godot4-webgl2-nakama-websocket-auth.md)) |
+| [[Grilling] Authoritative vs. optimistic client-server boundaries for offline-tolerant mobile play](https://github.com/snackpackgames/ansible/issues/4) (`#4`) | `wayfinder:grilling` | Blocked by [#2](https://github.com/snackpackgames/ansible/issues/2) *(unblocked once `#2` syncs; `#3` resolved)* |
 | [[Task] Establish automated test suite (Rust cargo test, Godot GUT) and godot-mcp-runtime + ffmpeg playtest capture workflow](https://github.com/snackpackgames/ansible/issues/5) (`#5`) | `wayfinder:task` | **Frontier (unblocked)** |
 
 ## [Map: Turn-Based Squad Combat System (PS1-Era Cinematic Line-Up)](https://github.com/snackpackgames/ansible/issues/6) (`#6`)

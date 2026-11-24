@@ -46,4 +46,25 @@ EOF
 )
 gh api -X PATCH "repos/$REPO/issues/6" -f body="$MAP6_BODY" >/dev/null
 
-echo "Done! Map #6 and ticket #7 synced on GitHub."
+echo "==> Syncing resolution for #3 ([Research] Godot 4 Compatibility renderer WebGL2 export & nakama-godot WebSocket auth on browser and mobile)..."
+gh api -X POST "repos/$REPO/issues/3/comments" \
+  -F body="@$ROOT_DIR/documentation/wayfinder/resolutions/0003-godot4-webgl2-nakama-websocket-auth.md" >/dev/null
+gh api -X PATCH "repos/$REPO/issues/3" -f state=closed -f state_reason=completed >/dev/null
+
+echo "==> Updating Map #1 Decisions-so-far with #3..."
+MAP1_TMP="$(mktemp)"
+gh api "repos/$REPO/issues/1" --jq '.body' > "$MAP1_TMP"
+python3 - "$MAP1_TMP" <<'PY'
+import sys
+p = sys.argv[1]
+text = open(p).read()
+marker = "<!-- the index — one line per closed ticket: enough to judge relevance, then zoom the link for the detail the ticket holds -->"
+entry = "- [[Research] Godot 4 Compatibility renderer WebGL2 export & nakama-godot WebSocket auth on browser and mobile](https://github.com/snackpackgames/ansible/issues/3) — Confirmed `gl_compatibility` + single-threaded Web export (`thread_support=false`, WebAudio `Sample` mode w/ pre-baked FX & gesture unlock), dual VRAM `.pck` duplication guardrails (vertex-color/WebP + Brotli), Compatibility lighting/shader limits, pure-GDScript `heroiclabs/nakama-godot` with stateless HTTPS `client.rpc_async` for turn RPCs + `NakamaSocket` (`wss://`) for push events, UUID device auth (never `OS.get_unique_id()`), email/social linking for Safari 7-day ITP eviction, and 2-token `NakamaSession.new(token, refresh_token)` restore + resume backoff (`documentation/wayfinder/resolutions/0003-godot4-webgl2-nakama-websocket-auth.md`)."
+if entry not in text:
+    assert marker in text, "Decisions-so-far marker not found in Map #1"
+    open(p, "w").write(text.replace(marker, marker + "\n\n" + entry, 1))
+PY
+gh api -X PATCH "repos/$REPO/issues/1" -F body="@$MAP1_TMP" >/dev/null
+rm -f "$MAP1_TMP"
+
+echo "Done! Synced resolutions (#3, #7) and updated Maps #1 & #6 on GitHub."
