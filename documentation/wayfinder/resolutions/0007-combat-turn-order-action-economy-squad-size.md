@@ -27,7 +27,7 @@
 
 ## Domain Model & Downstream Impact
 
-- **Updated [CONTEXT.md](../../../CONTEXT.md):** Added canonical terms **Action Value (AV)** and **Cylinder AP**, and updated **Squad** to `3 core Drifters + optional 4th borrowed guest slot (3+1)`.
+- **Updated [GLOSSARY.md](../../../GLOSSARY.md):** Added canonical terms **Action Value (AV)** and **Cylinder AP**, and updated **Squad** to `3 core Drifters + optional 4th borrowed guest slot (3+1)`.
 - **New Fog Added to Map #6 (`Not yet specified`):** Staggered multi-row arena staging and touch target-selection ergonomics for large `5–8` enemy swarms on mobile screens.
 - **Unblocked Frontier Tickets:**
   - [[Grilling] Drifter battle classes, skill kits, and status/trigger taxonomy](https://github.com/snackpackgames/ansible/issues/8) (`#8`)
