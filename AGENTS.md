@@ -13,7 +13,7 @@
 | **Backend Server** | `server/` | Nakama Go runtime plugin + `wazero` WASM host | Auth, WebSockets, Storage Engine, Friends/Groups, RPCs delegating game rules to `sim_core.wasm` |
 | **Playtesting & Capture** | `.mcp.json`, `scripts/record_playtest.sh` | `godot-mcp-runtime` (`Erodenn/godot-mcp-runtime`) + `ffmpeg` | Live runtime scene inspection/input via MCP + deterministic MovieWriter / Xvfb `ffmpeg` video & screenshot capture |
 
-Read [CONTEXT.md](CONTEXT.md) for canonical domain terms and [documentation/adr/0001-godot-nakama-rust-wasm-stack.md](documentation/adr/0001-godot-nakama-rust-wasm-stack.md) for stack rationale.
+Read [GLOSSARY.md](GLOSSARY.md) for canonical domain terms and [documentation/adr/0001-godot-nakama-rust-wasm-stack.md](documentation/adr/0001-godot-nakama-rust-wasm-stack.md) for stack rationale.
 
 ---
 
@@ -59,3 +59,17 @@ docker compose up --build
 ## Worktree Policy
 
 - Use sibling worktrees (`../ansible-<suffix>`) only. Never create nested worktrees inside the repository root (Godot recursively scans subdirectories).
+
+## Agent skills
+
+### Issue tracker
+
+GitHub Issues (`snackpackgames/ansible`, via the `gh` CLI). See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default five canonical triage roles (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context (`GLOSSARY.md` and `documentation/adr/`). See `docs/agents/domain.md`.
